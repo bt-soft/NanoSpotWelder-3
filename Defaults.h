@@ -39,7 +39,7 @@
 #define DEF_PACKET_PAUSE_CNT			10      /* hegesztés csomagok ismétlése közötti várakozási impulzusok száma */
 
 
-#define DEF_MOT_TEMP_ALARM 				30 		/* MOT hõmérséklet riasztás bekapcsolási határ °C-ban */
+#define DEF_MOT_TEMP_ALARM 				40 		/* MOT hõmérséklet riasztás bekapcsolási határ °C-ban */
 
 #define SYSTEM_FREQUENCY				50.0	/* A ~230V-os hálózat frekvenciája Hz-ben */
 

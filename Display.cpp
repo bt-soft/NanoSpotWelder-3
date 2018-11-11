@@ -174,14 +174,14 @@ void Display::drawMainPage(void) {
 		setCursor(46, 26);
 		print(F("Pause:"));
 		if (pConfig->configVars.packetCnt <= 1) {
-			setCursor(75, 20);
+			setCursor(70, 20);
 			print(F("-"));
-			setCursor(75, 26);
+			setCursor(70, 26);
 			print(F("-"));
 		} else {
-			setCursor(75, 20);
+			setCursor(70, 20);
 			print(pConfig->configVars.packetCnt);
-			setCursor(75, 26);
+			setCursor(70, 26);
 			print(pConfig->configVars.packetPauseCnt);
 		}
 	}
