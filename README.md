@@ -1,5 +1,5 @@
-# nanoSpotWelder-3
-Pulse counter spot welder with ATmega32P microprocessor
+# NanoSpotWelder-3
+Pulse counter spot welder with ATmega328P microprocessor
 
 
 ![componens-side](KiCad/component-side.png)
