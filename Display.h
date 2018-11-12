@@ -140,8 +140,11 @@ private:
 	 */
 	void setBlackLightState(bool state) {
 		if (blackLightPin != -1) {
-			Serial.println(state);
-			digitalWrite(blackLightPin, !state ? HIGH : LOW);  //A Nokia 5110 LCD LOW-ra világít
+			if(LCD_BACKLIGHT_ON == HIGH){
+				digitalWrite(blackLightPin, state ? LOW : HIGH);
+			} else {
+				digitalWrite(blackLightPin, state ? HIGH : LOW);
+			}
 		}
 	}
 

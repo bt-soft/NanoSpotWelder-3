@@ -31,6 +31,9 @@
 void Display::init(void) {
 	//LCD init
 	begin();
+	setBlackLightState(pConfig->configVars.blackLightState);
+	setContrast(pConfig->configVars.contrast);
+	setBias(pConfig->configVars.bias);
 
 	menuItems[0] = {"Weld mode", WELD, &localConfigVars.pulseCountWeldMode, 0, 1, NULL};
 	menuItems[1] = {"PreWeld pulse", PULSE, &localConfigVars.preWeldPulseCnt, 0, 255, NULL};
@@ -48,6 +51,7 @@ void Display::init(void) {
 	menuItems[13] = {"Drop & Exit", FUNCT, NULL, 0, 0, &Display::exitAndCancelCallBack};
 
 	resetMenu();
+
 }
 
 /**
@@ -549,27 +553,26 @@ void Display::factoryResetCallBack(void) {
 	setFont(NULL);
 	setTextSize(1);
 	setTextColor(BLACK, WHITE);
-	setCursor(10, 0);
+	setCursor(3, 0);
 	print(F("Factory Reset"));
 	drawFastHLine(0, 10, 83, BLACK);
 
 	setTextSize(2);
-	setCursor(0, 15);
+	setCursor(0, 20);
 	print(F("I do..."));
 
 	pConfig->createDefaultConfig(&localConfigVars);
 
 	//Konfig beállítások érvényesítése
-	lcdContrastCallBack();
 	lcdBackLightCallBack();
+	lcdContrastCallBack();
+	lcdBiasCallBack();
 
 	display();
 	delay(2000);
 
-	//menü alapállapotba
 	resetMenu();
-	menuState = MAIN_MENU;
-	drawMainMenu();
+	menuState = FORCE_MAIN_DISPLAY;
 }
 /**
  *

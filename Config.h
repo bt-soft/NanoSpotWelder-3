@@ -80,8 +80,8 @@ public:
 		pCfgVars->beepState = DEF_BEEP_STATE;
 
 		//LCD
-		pCfgVars->contrast = DEF_CONTRAST;
-		pCfgVars->bias = DEF_BIAS;
+		pCfgVars->contrast = DEF_LCD_CONTRAST;
+		pCfgVars->bias = DEF_LCD_BIAS;
 
 		//Weld
 		pCfgVars->preWeldPulseCnt = DEF_PREWELD_PULSE_CNT;

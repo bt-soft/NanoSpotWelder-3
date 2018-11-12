@@ -31,6 +31,12 @@
 
 // Digitális (DS18B30) a hõmérõ szenzor? Ha LM335, akkor ki kell kommentezni
 #define USE_DIGITAL_TEMPERATURE_SENSOR
-#define MOT_TEMP_DISPLAY_TIME  500 /* msec-ben a MOT hõmérséklet kijelzésének frissítési ideje*/
+#define MOT_TEMP_DISPLAY_TIME  1000 /* msec-ben a MOT hõmérséklet kijelzésének frissítési ideje*/
+
+
+//LCD háttérvilágítás milyen szintre aktív?
+//Kék hátterû (kék panel) 		-> LOW
+//Fehér hetterû (piros panel) 	-> HIGH
+#define LCD_BACKLIGHT_ON 	LOW
 
 #endif /* ENVIRONMENT_H_ */
