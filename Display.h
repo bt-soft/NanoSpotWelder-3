@@ -159,7 +159,6 @@ private:
 		command(PCD8544_SETBIAS | bias);
 		command(PCD8544_FUNCTIONSET);
 		display();
-
 	}
 
 	void beep(void){
