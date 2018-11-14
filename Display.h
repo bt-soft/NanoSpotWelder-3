@@ -152,9 +152,7 @@ private:
 	 * LCD Elõfeszítés beállítása
 	 */
 	void setBias(byte bias) {
-		if (bias > 7) {
-			bias = 7;
-		}
+		bias = max(bias, 7);
 		command(PCD8544_FUNCTIONSET | PCD8544_EXTENDEDINSTRUCTION);
 		command(PCD8544_SETBIAS | bias);
 		command(PCD8544_FUNCTIONSET);
