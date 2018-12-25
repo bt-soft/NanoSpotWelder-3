@@ -47,8 +47,8 @@ void Display::init(void) {
 	menuItems[9] = {"LCD light", BOOL, &localConfigVars.blackLightState, 0, 1, &Display::lcdBackLightCallBack};
 	menuItems[10] = {"Beep", BOOL, &localConfigVars.beepState, 0, 1, NULL};
 	menuItems[11] = {"Factory reset", FUNCT, NULL, 0, 0, &Display::factoryResetCallBack};
-	menuItems[12] = {"Save & Exit", FUNCT, NULL, 0, 0, &Display::exitAndSaveCallBack};
-	menuItems[13] = {"Drop & Exit", FUNCT, NULL, 0, 0, &Display::exitAndCancelCallBack};
+	menuItems[12] = {"Save & Exit", FUNCT, NULL, 0, 0, &Display::saveAndExitCallBack};
+	menuItems[13] = {"Drop & Exit", FUNCT, NULL, 0, 0, &Display::dropAndExitCallBack};
 
 	resetMenu();
 
@@ -246,7 +246,7 @@ void Display::menuController(RotaryEncoder::Button buttonState, RotaryEncoder::D
 			menuState = MAIN_MENU;
 			drawMainMenu();
 
-			//Lemásoljuk az aktuális konfigurációt
+			//Beléptünk a menübe -> lemásoljuk az aktuális konfigurációt
 			memcpy(&localConfigVars, &pConfig->configVars, sizeof(localConfigVars));
 
 			beep();
@@ -527,13 +527,13 @@ void Display::invokeMenuItemCallBackFunct(void) {
 
 //------------------------------------------------------------------- Menüelemek callback függvényei
 /**
- *
+ * LCD Contrast
  */
 void Display::lcdContrastCallBack(void) {
 	setContrast(localConfigVars.contrast);
 }
 /**
- *
+ * LCD BIAS
  */
 void Display::lcdBiasCallBack(void) {
 	setBias(localConfigVars.bias);
@@ -545,7 +545,7 @@ void Display::lcdBackLightCallBack(void) {
 	setBlackLightState(localConfigVars.blackLightState);
 }
 /**
- *
+ * Gyári beállítások visszaállítása
  */
 void Display::factoryResetCallBack(void) {
 
@@ -575,9 +575,9 @@ void Display::factoryResetCallBack(void) {
 	menuState = FORCE_MAIN_DISPLAY;
 }
 /**
- *
+ * Kilépés mentéssel
  */
-void Display::exitAndSaveCallBack(void) {
+void Display::saveAndExitCallBack(void) {
 
 	clearDisplay();
 	setFont(NULL);
@@ -612,9 +612,9 @@ void Display::exitAndSaveCallBack(void) {
 	menuState = FORCE_MAIN_DISPLAY;
 }
 /**
- *
+ * kilépés mentés nélkül
  */
-void Display::exitAndCancelCallBack(void) {
+void Display::dropAndExitCallBack(void) {
 	resetMenu();
 	menuState = FORCE_MAIN_DISPLAY;
 }

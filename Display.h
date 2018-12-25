@@ -69,7 +69,6 @@ private:
 	Beeper *pBeeper;
 	char tempBuff[32] = { '\x0' };
 
-
 public:
 	void init(void);
 	void loop(MOTTemp::MOTTempResult *motTempResult);
@@ -130,8 +129,8 @@ private:
 	void lcdBiasCallBack(void);
 	void lcdBackLightCallBack(void);
 	void factoryResetCallBack(void);
-	void exitAndSaveCallBack(void);
-	void exitAndCancelCallBack(void);
+	void saveAndExitCallBack(void);
+	void dropAndExitCallBack(void);
 
 	char *msecToStr(long pulseCnt);
 
@@ -140,7 +139,7 @@ private:
 	 */
 	void setBlackLightState(bool state) {
 		if (blackLightPin != -1) {
-			if(LCD_BACKLIGHT_ON == HIGH){
+			if (LCD_BACKLIGHT_ON == HIGH) {
 				digitalWrite(blackLightPin, state ? LOW : HIGH);
 			} else {
 				digitalWrite(blackLightPin, state ? HIGH : LOW);
@@ -159,7 +158,7 @@ private:
 		display();
 	}
 
-	void beep(void){
+	void beep(void) {
 		if (localConfigVars.beepState) {
 			pBeeper->menu();
 		}
