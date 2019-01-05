@@ -37,6 +37,6 @@
 //LCD háttérvilágítás milyen szintre aktív?
 //Kék hátterû (kék panel) 		-> LOW
 //Fehér hetterû (piros panel) 	-> HIGH
-#define LCD_BACKLIGHT_ON 	LOW
+#define LCD_BACKLIGHT_ON 	HIGH
 
 #endif /* ENVIRONMENT_H_ */

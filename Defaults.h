@@ -23,7 +23,7 @@
 #ifndef DEFAULTS_H_
 #define DEFAULTS_H_
 
-#define DEF_LCD_CONTRAST				5 		/* LCD kontraszt */
+#define DEF_LCD_CONTRAST				30 		/* LCD kontraszt */
 #define DEF_LCD_BIAS					4 		/* LCD elõfeszítés */
 
 #define DEF_PULSE_COUNT_WELD_MODE		true	/* pulzusszámlálásos hegesztési mód */

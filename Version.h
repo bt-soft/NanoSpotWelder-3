@@ -23,7 +23,7 @@
 #ifndef NSP_VERSION_H_
 #define NSP_VERSION_H_
 
-#define NSP_VERSION "0.3.1"
+#define NSP_VERSION "0.0.5"
 #define NSP_VERSION_SIZE (sizeof(NSP_VERSION))
 
 
