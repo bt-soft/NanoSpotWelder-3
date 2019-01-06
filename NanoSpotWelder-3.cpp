@@ -45,14 +45,14 @@ RotaryEncoder *pRotaryEncoder;
  */
 void ventilatorController(float *currentMotTemp) {
 
-	int triggerValue = pConfig->configVars.motTempAlarm - VENTILATOR_TRIGGER_OFFSET_VALUE;
+	const int triggerValue = pConfig->configVars.motTempAlarm - VENTILATOR_TRIGGER_OFFSET_VALUE;
 
-	if (triggerValue > *currentMotTemp) {
+	if (triggerValue > (*currentMotTemp + 0.5)) {
 		if (digitalRead(PIN_VENTILATOR)) {
 			digitalWrite(PIN_VENTILATOR, LOW);
 		}
 
-	} else if (triggerValue <= *currentMotTemp) {
+	} else if (triggerValue <= (*currentMotTemp/* - 0.5*/)) {
 		if (!digitalRead(PIN_VENTILATOR)) {
 			digitalWrite(PIN_VENTILATOR, HIGH);
 		}
