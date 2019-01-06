@@ -132,6 +132,8 @@ private:
 	void saveAndExitCallBack(void);
 	void dropAndExitCallBack(void);
 
+	void saveConfig(void);
+
 	char *msecToStr(long pulseCnt);
 
 	/**

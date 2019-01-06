@@ -557,11 +557,8 @@ void Display::factoryResetCallBack(void) {
 	print(F("Factory Reset"));
 	drawFastHLine(0, 10, 83, BLACK);
 
-	setTextSize(2);
-	setCursor(0, 20);
-	print(F("I do..."));
-
 	pConfig->createDefaultConfig(&localConfigVars);
+	saveConfig();
 
 	//Konfig beállítások érvényesítése
 	lcdBackLightCallBack();
@@ -587,6 +584,18 @@ void Display::saveAndExitCallBack(void) {
 	print(F("Save Config"));
 	drawFastHLine(0, 10, 83, BLACK);
 
+	saveConfig();
+
+	display();
+	delay(2000);
+
+	resetMenu();
+	menuState = FORCE_MAIN_DISPLAY;
+}
+
+
+void Display::saveConfig(void) {
+
 	//Ha volt a konfigban változás, akkor mentünk
 	if (memcmp(&localConfigVars, &pConfig->configVars, sizeof(localConfigVars)) != 0) {
 
@@ -605,12 +614,9 @@ void Display::saveAndExitCallBack(void) {
 		println(F(" to be saved!"));
 	}
 
-	display();
-	delay(2000);
-
-	resetMenu();
-	menuState = FORCE_MAIN_DISPLAY;
 }
+
+
 /**
  * kilépés mentés nélkül
  */
