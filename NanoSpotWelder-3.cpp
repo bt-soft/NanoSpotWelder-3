@@ -47,12 +47,12 @@ void ventilatorController(float *currentMotTemp) {
 
 	const int triggerValue = pConfig->configVars.motTempAlarm - VENTILATOR_TRIGGER_OFFSET_VALUE;
 
-	if (triggerValue > (*currentMotTemp + 0.5)) {
+	if (triggerValue > (*currentMotTemp + 1.0)) {
 		if (digitalRead(PIN_VENTILATOR)) {
 			digitalWrite(PIN_VENTILATOR, LOW);
 		}
 
-	} else if (triggerValue <= (*currentMotTemp/* - 0.5*/)) {
+	} else if (triggerValue <= *currentMotTemp) {
 		if (!digitalRead(PIN_VENTILATOR)) {
 			digitalWrite(PIN_VENTILATOR, HIGH);
 		}
