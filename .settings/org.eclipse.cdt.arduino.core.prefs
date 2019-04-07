@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-libraries=[{"package"\:"arduino","platform"\:"avr","library"\:"EEPROM"},"MD_LM335A","Adafruit PCD8544 Nokia 5110 LCD library","DallasTemperature","OneWire",{"package"\:"arduino","platform"\:"avr","library"\:"Wire"},{"package"\:"arduino","platform"\:"avr","library"\:"SPI"},"Adafruit GFX Library","TimerOne"]
+libraries=[{"package"\:"arduino","platform"\:"avr","library"\:"EEPROM"},"MD_LM335A","Adafruit PCD8544 Nokia 5110 LCD library",{"package"\:"arduino","platform"\:"avr","library"\:"Wire"},{"package"\:"arduino","platform"\:"avr","library"\:"SPI"},"DallasTemperature","OneWire","Adafruit GFX Library","TimerOne"]
